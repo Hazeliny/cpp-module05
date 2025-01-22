@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: linyao <linyao@student.42barcelona.co      +#+  +:+       +#+        */
+/*   By: linyao <linyao@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:53:27 by linyao            #+#    #+#             */
-/*   Updated: 2025/01/22 16:53:32 by linyao           ###   ########.fr       */
+/*   Updated: 2025/01/22 23:20:28 by linyao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@
 class Bureaucrat
 {
 	private:
-		const std::string	_name;
-		int					_grade;
+		std::string	_name;
+		int			_grade;
 		void	setGrade(int grade);
 	public:
 		Bureaucrat();
 		~Bureaucrat();
 		Bureaucrat(std::string const &name, int grade);
 		Bureaucrat(Bureaucrat const &src);
-		Bureaucrat &operator= (Bureaucrat const &src);
+		Bureaucrat const &operator=(Bureaucrat const &src);
 		std::string const &getName() const;
 		int	getGrade() const;
 		void increaseGrade();
@@ -45,8 +45,4 @@ class Bureaucrat
 		};
 };
 
-std::ostream &operator<<(std::ostream &os, const Bureaucrat &b)
-{
-	os << b.getName() << ", bureaucrat grade " << b.getGrade() << ".";
-	return os;
-}
+std::ostream &operator<<(std::ostream &os, Bureaucrat const &b);
