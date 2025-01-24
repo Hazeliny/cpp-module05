@@ -6,7 +6,7 @@
 /*   By: linyao <linyao@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:53:27 by linyao            #+#    #+#             */
-/*   Updated: 2025/01/23 21:06:33 by linyao           ###   ########.fr       */
+/*   Updated: 2025/01/24 23:29:05 by linyao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ class Bureaucrat
 		};
 
 		void	signForm(AForm &f);
+		void	executeForm(AForm const &f);
 };
 
 std::ostream &operator<<(std::ostream &os, Bureaucrat const &b);

@@ -6,17 +6,17 @@
 #    By: linyao <linyao@student.42barcelona.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/22 23:15:37 by linyao            #+#    #+#              #
-#    Updated: 2025/01/23 22:29:15 by linyao           ###   ########.fr        #
+#    Updated: 2025/01/24 23:16:10 by linyao           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = form
+NAME = aform
 CXX = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic -Wshadow
 RM = rm -rf
 
-INC = Bureaucrat.hpp AForm.hpp
-SRC = main.cpp Bureaucrat.cpp AForm.cpp
+INC = Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp
+SRC = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)

@@ -6,7 +6,7 @@
 /*   By: linyao <linyao@student.42barcelona.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 17:40:00 by linyao            #+#    #+#             */
-/*   Updated: 2025/01/23 23:00:51 by linyao           ###   ########.fr       */
+/*   Updated: 2025/01/24 23:56:25 by linyao           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,30 @@ void	Bureaucrat::signForm(AForm &f)
 	catch(std::exception& e)
 	{
 		std::cerr << this->_name << " couldn't sign " << f.getName() << " because " << e.what() << std::endl;
+	}
+}
+
+void	Bureaucrat::executeForm(AForm const &f)
+{
+	try
+	{
+		f.execute(*this);
+	}
+	catch(Bureaucrat::GradeTooLowException &e)
+	{
+		std::cerr << this->_name << " cannot execute " << f.getName() << " because " << e.what() << std::endl;
+	}
+	catch(AForm::GradeNotSignedException &e)
+	{
+		std::cerr << e.what() << " by " << this->_name << std::endl;
+	}
+	catch(std::runtime_error &e)
+	{
+		std::cerr << "Error: File operation failed. " << e.what() << std::endl;
+	}
+	catch(std::exception& e)
+	{
+		std::cerr << "An unexpected error occurred: " << e.what() << std::endl;
 	}
 }
 
